@@ -8,3 +8,16 @@ print(factorial(10))
 
 <출력>
 3628800'''
+
+result = 1
+
+def factorial(num):
+    global result
+    if num == 1: 
+        return 
+    result = num * result
+    factorial(num-1)
+    return result
+
+    
+print(factorial(10))

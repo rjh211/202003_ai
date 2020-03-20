@@ -14,3 +14,24 @@ print(select_sort(list))
 [1, 2, 3, 6, 7, 8, 10, 21]
 
 '''
+
+lst = [6,2,3,7,8,10,21,1]
+count = 0
+
+def select_sort(sortList):
+    global count
+    while count != len(lst):
+        minValue, position = sortList[count] , 0
+        for i in range(count + 1,len(sortList)):
+            if minValue >= sortList[i]: 
+                minValue, position = sortList[i], i
+    
+        if position != 0:
+            sortList[count], sortList[position] = sortList[position], sortList[count]
+        
+        count+=1 
+        select_sort(sortList)
+    return sortList
+    
+
+print(select_sort(lst))

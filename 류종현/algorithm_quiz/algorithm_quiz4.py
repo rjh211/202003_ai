@@ -17,3 +17,23 @@ print(greedy())
 동전의 종류 :  100 50 10
 100원 동전 10개, 50원 동전 1개, 10원 동전 0개
 '''
+
+pay = int(input("액수 입력:"))
+typeOfCoin = input("동전의 종류 : ").split()
+
+for i in range(0,len(typeOfCoin)):
+    typeOfCoin[i] = int(typeOfCoin[i])
+
+typeOfCoin.sort(reverse= True)
+
+def greedy():
+    global pay
+    resstr = ""
+    for i in range(0,len(typeOfCoin)):
+        qoutient = pay // typeOfCoin[i]
+        pay = pay % typeOfCoin[i]
+        if i != len(typeOfCoin)-1: resstr += f"{typeOfCoin[i]}원 동전 {qoutient}개, "
+        else: resstr += f"{typeOfCoin[i]}원 동전 {qoutient}개"
+    return resstr
+
+print(greedy())
